@@ -5,12 +5,21 @@ const resultDisplay = document.createElement('h2')
 const gameGrid = document.getElementById('game')
 gameGrid.append(userChoiceDisplay, computerChoiceDisplay, resultDisplay)
 
-// hand choices
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+let userChoice
+
 
 // click event for each of the choices buttons
-const handleClick = () => {
-    console.log('clicked')
+const handleClick = (e) => {
+    userChoice = e.target.id
+    userChoiceDisplay.innerHTML = 'You chose: ' + userChoice
+    generateComputerChoice()
+}
+
+// generates a random choice for computer
+const generateComputerChoice = () => {
+    const randomChoice = choices[Math.floor(Math.random() * choices.length)] // uses choices array index to determin what to return
+    computerChoiceDisplay.innerHTML = 'Computer chose: ' + randomChoice
 }
 
 // loops through choices and create a button element for each, with a corresponding id and html text
