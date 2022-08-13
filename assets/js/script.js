@@ -7,6 +7,7 @@ gameGrid.append(userChoiceDisplay, computerChoiceDisplay, resultDisplay)
 
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 let userChoice
+let computerChoice
 
 
 // click event for each of the choices buttons
@@ -19,7 +20,8 @@ const handleClick = (e) => {
 // generates a random choice for computer
 const generateComputerChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)] // uses choices array index to determin what to return
-    computerChoiceDisplay.innerHTML = 'Computer chose: ' + randomChoice
+    computerChoice = randomChoice
+    computerChoiceDisplay.innerHTML = 'Computer chose: ' + computerChoice
 }
 
 // loops through choices and create a button element for each, with a corresponding id and html text
@@ -29,5 +31,4 @@ for (let i = 0; i < choices.length; i++) {
     button.innerHTML = choices[i]
     button.addEventListener('click', handleClick)
     gameGrid.appendChild(button)
-
 }
