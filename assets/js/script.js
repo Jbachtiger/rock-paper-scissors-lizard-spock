@@ -15,6 +15,7 @@ const handleClick = (e) => {
     userChoice = e.target.id
     userChoiceDisplay.innerHTML = 'You chose: ' + userChoice
     generateComputerChoice()
+    getResults()
 }
 
 // generates a random choice for computer
@@ -31,4 +32,40 @@ for (let i = 0; i < choices.length; i++) {
     button.innerHTML = choices[i]
     button.addEventListener('click', handleClick)
     gameGrid.appendChild(button)
+}
+
+const getResults = () => {
+    switch (userChoice + computerChoice) {
+        case 'scissorspaper':
+        case 'rockscissors':
+        case 'paperrock':
+        case 'rocklizard':
+        case 'lizardspock':
+        case 'spockscissors':
+        case 'scissorslizard':
+        case 'lizardpaper':
+        case'paperspock':
+        case'spockrock':
+            resultDisplay.innerHTML = 'YOU WIN!'
+            break
+        case 'paperscissors':
+        case 'scissorsrock':
+        case 'rockpaper':
+        case 'lizardrock':
+        case 'spocklizard':
+        case 'scissorsspock':
+        case 'lizardscissors':
+        case 'paperlizard':
+        case'spockpaper':
+        case'rockspock':
+            resultDisplay.innerHTML = 'YOU LOSE!'
+             break
+        case 'scissorsscissors':
+        case 'rockrock':
+        case 'paperpaper':
+        case 'lizardlizard':
+        case 'spockspock':
+            resultDisplay.innerHTML = "IT'S A DRAW!"
+            break
+    }
 }
